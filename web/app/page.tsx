@@ -485,7 +485,7 @@ export default function Home() {
         // We use the segment time to determine where in the SVG loop we are
         const sigIdx = Math.floor((i % (sampleRate * (isSingle ? wavDuration : showInterval))) % len);
 
-        if ((i % (sampleRate * (isSingle ? wavDuration : showInterval)) / sampleRate) < (isSingle ? wavDuration : showInterval) * progress) {
+        if (sigIdx < len * progress) {
           let l = Math.max(-1, Math.min(1, left[sigIdx % len]));
           view.setInt16(offset, l < 0 ? l * 0x8000 : l * 0x7FFF, true);
           offset += 2;
