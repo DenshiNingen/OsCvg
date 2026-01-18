@@ -524,7 +524,7 @@ export default function Home() {
     <main className="min-h-screen bg-neutral-950 text-green-500 font-mono flex flex-col items-center p-4 md:p-8">
       <header className="w-full max-w-6xl flex justify-between items-end mb-8 border-b border-green-900/30 pb-4">
         <div>
-          <h1 className="text-4xl font-bold tracking-tighter glow-text uppercase">OsCvg Studio</h1>
+          <h1 className="text-4xl font-bold tracking-tighter glow-text">OsCvg STUDIO</h1>
           <p className="text-xs opacity-50 mt-1 uppercase tracking-widest">SVG to Oscilloscope Art Generator</p>
         </div>
         <div className="flex gap-4">
