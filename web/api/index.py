@@ -8,8 +8,8 @@ import email
 from email.policy import default
 
 # Add repository root to path to import oscgv
-# Since this file is in /web/api/index.py, the repo root is ../../
-repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
+# Since this file is in /web/api/index.py, and oscgv is in /web/oscgv/, the repo root is ../
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 if repo_root not in sys.path:
     sys.path.append(repo_root)
 
