@@ -1,5 +1,8 @@
 import numpy as np
-import sounddevice as sd
+try:
+    import sounddevice as sd
+except ImportError:
+    sd = None
 from scipy.io.wavfile import write
 import time
 import os
@@ -147,6 +150,9 @@ def stream_audio(signal, sample_rate=48000):
     """
     print(f"Streaming audio at {sample_rate}Hz... Press Ctrl+C to stop.")
     
+    if sd is None:
+        raise ImportError("sounddevice is not installed. Audio playback is not available.")
+
     stream = sd.OutputStream(samplerate=sample_rate, channels=2)
     stream.start()
     
@@ -204,6 +210,9 @@ def stream_audio_live(file_path, sample_rate=48000, refresh_rate=60, transit_spe
         pass
 
     # Clean approach: Main loop writes chunks. Check file every X seconds.
+    if sd is None:
+        raise ImportError("sounddevice is not installed. Audio playback is not available.")
+    
     stream = sd.OutputStream(samplerate=sample_rate, channels=2)
     stream.start()
     
@@ -426,6 +435,9 @@ def stream_show_live(directory, interval=10.0, sample_rate=48000, refresh_rate=6
     print(f"Interval: {interval}s")
     print("Press Ctrl+C to stop.")
     
+    if sd is None:
+        raise ImportError("sounddevice is not installed. Audio playback is not available.")
+
     stream = sd.OutputStream(samplerate=sample_rate, channels=2)
     stream.start()
     

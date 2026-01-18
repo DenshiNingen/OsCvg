@@ -1,3 +1,4 @@
+# Python ignores
 __pycache__/
 *.pyc
 *.wav
@@ -8,3 +9,9 @@ venv/
 *.egg-info/
 dist/
 build/
+
+# General ignores
+.DS_Store
+.env*
+*.pem
+.vercel
